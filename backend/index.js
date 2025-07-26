@@ -6,6 +6,8 @@ import userRoutes from "./routes/user.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from './routes/comment-route.js'
 import cookieParser from "cookie-parser";
+import cors from "cors";
+
 
 const port = 3000;
 
@@ -23,6 +25,9 @@ const app = express();
 //for allowing json object in req body
 app.use(express.json());
 app.use(cookieParser());
+
+// Enable CORS for all origins
+app.use(cors());
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
